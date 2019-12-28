@@ -13,8 +13,8 @@ from sys import exit
 from urllib.request import urlretrieve
 
 
-STEAMLINK_VERSION = "1.1.45.105"
-STEAMLINK_HASH = "8c411de403dbb24cabe029e15a313fcd8f0076f0cf5546ce5811eea53c97907e"
+STEAMLINK_VERSION = "@STEAMLINK_VERSION@"
+STEAMLINK_HASH = "@STEAMLINK_HASH@"
 STEAMLINK_TARBALL_NAME = f"steamlink-rpi3-{STEAMLINK_VERSION}.tar.gz"
 STEAMLINK_URL = f"http://media.steampowered.com/steamlink/rpi/{STEAMLINK_TARBALL_NAME}"
 ADDON_DIR = xbmcaddon.Addon().getAddonInfo("path") + "/"

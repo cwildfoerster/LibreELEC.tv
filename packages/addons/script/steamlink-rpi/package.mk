@@ -19,11 +19,15 @@ PKG_ADDON_NAME="steamlink-rpi"
 PKG_ADDON_TYPE="xbmc.python.script"
 PKG_ADDON_PROVIDES="executable"
 
+PKG_STEAMLINK_VERSION="1.1.45.105"
+PKG_STEAMLINK_HASH="8c411de403dbb24cabe029e15a313fcd8f0076f0cf5546ce5811eea53c97907e"
+
 make_target() {
   :
 }
 
 addon() {
+  # Add needed libraries
   mkdir -p ${ADDON_BUILD}/${PKG_ADDON_ID}/system-libs
 
   # libpng
@@ -38,4 +42,11 @@ addon() {
   # libX11
   cp -L $(get_build_dir steamlink-libX11)/.${TARGET_NAME}/src/.libs/libX11.so.6 ${ADDON_BUILD}/${PKG_ADDON_ID}/system-libs/
   cp -L $(get_build_dir steamlink-libX11)/.${TARGET_NAME}/src/.libs/libX11-xcb.so.1 ${ADDON_BUILD}/${PKG_ADDON_ID}/system-libs/
+}
+
+post_install_addon() {
+  # Add steamlink version to download to addon
+  sed -e "s/@STEAMLINK_VERSION@/${PKG_STEAMLINK_VERSION}/" \
+      -e "s/@STEAMLINK_HASH@/${PKG_STEAMLINK_HASH}/" \
+      -i ${ADDON_BUILD}/${PKG_ADDON_ID}/default.py
 }
