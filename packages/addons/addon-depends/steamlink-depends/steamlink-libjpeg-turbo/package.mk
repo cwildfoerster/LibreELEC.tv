@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-2.0
+	# SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2019-present Team LibreELEC (https://libreelec.tv)
 
 . $(get_pkg_directory libjpeg-turbo)/package.mk
@@ -17,10 +17,3 @@ unpack() {
   tar --strip-components=1 -xf ${SOURCES}/${PKG_NAME:10}/${PKG_NAME:10}-${PKG_VERSION}.tar.gz -C ${PKG_BUILD}
 }
 
-makeinstall_target() {
-  :
-}
-
-post_makeinstall_target() {
-  :
-}

@@ -13,6 +13,3 @@ unpack() {
   tar --strip-components=1 -xf ${SOURCES}/${PKG_NAME:10}/${PKG_NAME:10}-${PKG_VERSION}.tar.bz2 -C ${PKG_BUILD}
 }
 
-makeinstall_target() {
-  :
-}
